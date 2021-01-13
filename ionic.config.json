@@ -1,0 +1,7 @@
+{
+  "name": "ion-title-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

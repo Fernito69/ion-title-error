@@ -1,8 +1,11 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonItem, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonModal, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import './Home.css';
+import Page2 from './Page2';
 
 const Page: React.FC = () => {
+  const [showModal, setShowModal] = React.useState<boolean>(false);
+
   return (
     <IonPage>
       <IonHeader>
@@ -12,11 +15,14 @@ const Page: React.FC = () => {
           </IonButtons>
         </IonToolbar>
         <IonToolbar>
-          <IonTitle size="large">Page</IonTitle>
+          <IonTitle>Page</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonItem>It produces an error on iOS!</IonItem>
+        <IonButton onClick={() => setShowModal(true)}>Show modal</IonButton>
+        <IonModal isOpen={showModal}>
+          <Page2 setShowModal={setShowModal}/>
+        </IonModal>
       </IonContent>
     </IonPage>
   );
